@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box">
+        不凡学院
+    </div>
+
+
+    <script>
+        var box = document.querySelector('.box');
+        // 能不能绑定两个事件
+        // 用 onclick 只能绑定一个事件
+        // box.onclick = function(){
+        //     console.log('1');
+        // }
+        // box.onclick = function(){
+        //     console.log('2');
+        // }
+
+
+        // 事件监听器 addEventListener  更精细的  事件控制
+        // 可以注册(绑定)多个事件
+        // 不带 on
+        box.addEventListener('click',function(){
+            console.log('1');
+        })
+
+        box.addEventListener('click',function(){
+            console.log('2');
+        })
+
+    </script>
+</body>
+</html>

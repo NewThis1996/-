@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- `data-*=""`， -->
+
+    <ul>
+        <li data-index="0" data-bgc="red">li_1</li>
+        <li data-index="1" data-bgc="yellow">li_2</li>
+        <li data-index="2" data-bgc="blue">li_3</li>
+        <li data-index="3" data-bgc="orange">li_4</li>
+        <li data-index="4" data-bgc="green">li_5</li>
+    </ul>
+
+    <script>
+        var lis = document.querySelectorAll('li');
+
+        for (var i = 0; i < lis.length; i++) {
+            // 获取点击元素在 整个兄弟当中的索引 ,方法二 利用自定义属性
+           lis[i].onclick = function(){
+                var color = this.dataset['bgc'];
+                this.style.backgroundColor = color;
+
+
+                // 获取自己在兄弟中的  索引号
+                console.log(this.dataset['index']);
+           }
+        }
+
+        
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrap">
+        wrap
+        <div class="w1">
+            w1
+            <div class="w2">
+                w2
+                <div class="w3">
+                    w3
+                </div>
+            </div>
+        </div>
+    </div>
+    <button>移除w1的点击事件</button>
+    <script>
+
+        var w1 = document.querySelector('.w1');
+        var w2 = document.querySelector('.w2');
+
+        var w3 = document.querySelector('.w3');
+        var wrap = document.querySelector('.wrap');
+
+        w1.addEventListener('click',foo,true)
+        w2.addEventListener('click',function(){
+            console.log('w2');
+        },true)
+        w3.addEventListener('click',function(){
+            console.log('w3');
+        })
+        wrap.addEventListener('click',function(){
+            console.log('wrap');
+        })
+
+        function foo(){
+            console.log('w1');
+        }
+
+        // w3 作为内部元素 ,点击时  要触发很多事件 顺序
+
+        // 绑定事件时   需要指定事件 是  绑在 捕获阶段 还是 冒泡阶段
+        // 先执行捕获阶段 在执行冒泡阶段
+        // 第三个参数   true(捕获)  false(冒泡)
+
+
+        // removeEventListener 移除绑定
+        var btn = document.querySelector('button');
+        btn.onclick = function(){
+            // 需要和你绑定的事件 一一 对应
+            // 阶段一致
+            w1.removeEventListener('click',foo,true);
+        }
+    </script>
+</body>
+</html>

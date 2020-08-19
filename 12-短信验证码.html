@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    手机号: <input type="number"> <button>发送</button>
+
+    <script>
+        var btn = document.querySelector('button');
+        var count = 6;
+        // var timer;
+        btn.onclick = function(){
+            var timer = setInterval(function(){
+                // 刷新按钮里边的呢 数字
+                btn.disabled = true;
+                count--;
+                btn.innerText = count + '秒';
+                if(count===0){
+                    clearInterval(timer);
+                    btn.disabled = false;
+                    btn.innerText = '发送'; 
+                    count = 5 ;
+                }
+            },1000)
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <ul>
+        <li>li_1</li>
+        <li>li_2</li>
+        <li>li_3</li>
+        <li>li_4</li>
+        <li>li_5</li>
+    </ul>
+
+    <script>
+        var lis = document.querySelectorAll('li');
+
+
+        // 方法三  :  立即执行函数
+        // for (var i = 0; i < lis.length; i++) {
+
+        //     lis[i].onclick = (function (n) {
+        //         // 点击时   获取自己在兄弟中的 索引号
+        //         return function () {
+        //             console.log(n);
+        //         };
+        //     })(i);
+
+        //     // 这段代码 相当于
+        //     // 自执行函数 创建时候 要执行,,就把返回值 赋给了 onclick
+
+        //     // lis[i].onclick = function(){
+        //     //     console.log(n);
+        //     // }
+
+
+
+        //     // return 函数的 时候  ,会连带着 把这个函数所在作用域的 所有变量(放进一个背包里) 随着这个函数一块扔出去
+
+        //     // 当我们在 外部调用这个函数时  , 使用变量  会现在自己作用域查找,找不到 ,到自己的背包里查找,一层层往上找
+
+
+        //     // lis[0].onclick = function(){
+        //     //     // 背包里  存着 n =0
+        //     //     console.log(n);
+        //     // }
+        //     // lis[1].onclick = function(){
+        //     //     // 背包里  存着 n =1
+        //     //     console.log(n);
+        //     // }
+        //     // lis[2].onclick = function(){
+        //     //     // 背包里  存着 n =2
+        //     //     console.log(n);
+        //     // }
+        //     // ...
+        // }
+
+
+
+        // 方法四  ;  for 循环的时候   把  var   变成 let  就可以了 
+        for (let i = 0; i < lis.length; i++) {
+            lis[i].onclick = function () {
+                console.log(i);
+            }
+        }
+    </script>
+</body>
+
+</html>

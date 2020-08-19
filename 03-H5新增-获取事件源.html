@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box">
+        <div class="inner-box">
+
+        </div>
+    </div>
+    <ul class="nav">
+        <li class="nav-item active">li1</li>
+        <li class="nav-item">li2</li>
+        <li class="nav-item">li3</li>
+        <li class="nav-item">li4</li>
+        <li class="nav-item">li5</li>
+        <li class="nav-item">li6</li>
+    </ul>
+
+    <script>
+
+        // 获取事件源 
+        // document.querySelector('css选择器')
+        // 标签 class id    后代  交集  并集   兄弟  属性选择器
+
+        var inner = document.querySelector('.box .inner-box'); // 后代选择器
+        console.log(inner);
+        var currentLi = document.querySelector('.nav-item.active'); // 交集
+        console.log(currentLi);
+
+
+        var li = document.querySelector('.nav-item'); // 选择器如果匹配的是多个元素,只会取第一个dom元素
+        console.log(li);
+
+
+        var lis = document.querySelectorAll('.nav-item');
+        console.log(lis);
+
+
+        // 带上 all  获取 的是 所有 匹配元素(伪数组)
+        // 不带all  获取的就是  匹配元素的第一个
+    </script>
+</body>
+</html>

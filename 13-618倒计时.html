@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        h1 {
+            width: 250px;
+            margin: 100px auto 50px auto;
+        }
+
+        .item {
+            width: 500px;
+            height: 50px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 30px;
+            color: orange;
+        }
+
+        strong {
+            background-color: orange;
+            padding: 0 10px;
+            color: #fff;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>距离618,还有</h1>
+    <div class="item">
+        <span><span class="day">00</span>天</span>
+        <strong><span class="hour">00</span>时</strong>
+        <strong><span class="min">00</span>分</strong>
+        <strong><span class="second">00</span>秒</strong>
+    </div>
+
+    <script>
+        var dayEl = document.querySelector('.day');
+        var hourEl = document.querySelector('.hour');
+        var minEl = document.querySelector('.min');
+        var sEl = document.querySelector('.second');
+        var endTime = new Date('2020/06/18');
+        
+        setInterval(function () {
+            var nowTime = new Date();
+          //  nowTime要在循环里面,因为现在的时间是变动的
+            var stamp = endTime - nowTime; // 时间戳做减法  相差的毫秒数
+
+
+            // 把 毫秒 转成  天 时  分 秒 
+            // console.log(stamp);
+
+            var day_ms = 24 * 60 * 60 * 1000;
+
+            var hour_ms = 60 * 60 * 1000;
+
+            var min_ms = 60 * 1000;
+
+
+            // 获取天
+            var day = Math.floor(stamp / day_ms);
+            // console.log(day);
+
+            // 获取小时
+            // stamp%day_ms  不满一天的  的时间 
+            var hour = Math.floor(stamp % day_ms / hour_ms);
+
+            // 获取分钟
+            // 也可以这样stamp%day_ms%hour_ms
+            var min = Math.floor(stamp % hour_ms / min_ms);
+
+            // 获取秒 stamp%day_ms%hour_ms%min_ms
+            var s = Math.floor(stamp % min_ms / 1000);
+
+            // console.log(day,hour,min,s);
+            dayEl.innerText = wrap(day);
+            hourEl.innerText = wrap(hour);
+            minEl.innerText = wrap(min);
+            sEl.innerText = wrap(s);
+        }, 1000)
+
+
+        function wrap(n) {
+            return n >= 10 ? n : '0' + n;
+        }
+
+
+
+    </script>
+</body>
+
+</html>

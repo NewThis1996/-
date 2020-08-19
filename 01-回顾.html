@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- dom  节点(处处) 
+    经常操作的 只是  元素节点(标签) -->
+
+
+    <!-- 事件的三要素   事件源(绑给谁)   事件(鼠标点击/鼠标移动/获取焦点....)  事件处理程序(样式修改,属性修改,类名修改,内容修改) -->
+
+
+    <!-- 如何绑定事件  -->
+    <!-- 事件源.onclick = function(){
+        处理程序
+    } -->
+
+
+    <!-- 如何获取事件源:  -->
+    <!-- document.getElement...  注意单数 和 负数   (是dom元素  还是  包含dom元素的  伪数组) -->
+    <!-- 通过关系获取   dom元素 -->
+    <!-- 获取父元素  el.parentNode -->
+    <!-- el.nextElementSibling  || el.nextSibling; -->
+    <!-- previous 上一个 -->
+
+    <!-- 获取子元素 -->
+    <!-- firstElementChild  || firstChild; -->
+    <!-- last 最后一个 -->
+    <!-- el.children; -->
+
+    <!-- nodeType  可以知道  节点类型 --> 
+
+
+    <!-- 样式修改  -->
+    <!-- el.style.color = 'red';
+    el.style.fontSize = '24px';
+    修改(获取)的是 行内样式 -->
+
+
+    <!-- 属性修改 -->
+    <!-- 标签有很多属性 比如 src,alt ,class,title ...  -->
+    <!-- el.src = '新路径' -->
+    <!-- el.className = '新类名' -->
+
+    <!-- el.setAttribute('属性名','新的属性值');
+    el.getAttribute('属性名');
+    el.removeAttribute('属性名') -->
+
+
+
+    <!-- 节点增删改查 -->
+
+    <!-- 创建节点  document.createElement('标签名') -->
+    <!-- 插入节点  父节点.appendChild('dom元素')
+    父节点.insertBefore('dom元素','参考节点') -->
+
+    <!-- 复制节点  el.cloneNode();  true  或者  false  -->
+
+    <!-- 删除节点 父节点.removeChild('dom元素')  -->
+
+
+    <!-- 内容操作:  -->
+    <!-- innerText  获取的只是文本 / 设置时 被当做文本识别
+    innerHTML  获取的是结构(有标签有文本) / 设置时  有标签字符串 会被识别为 标签  -->
+
+
+    <!-- 表单内容 -->
+    <!-- value 属性 控制 -->
+    <!-- 单选多选 是由 checked 属性控制 -->
+</body>
+</html>

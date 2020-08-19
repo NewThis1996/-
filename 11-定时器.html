@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="out">取消setTimeOut</button>
+    <button class="int">取消setInterval</button>
+
+    <div class="ads">
+        <img src="img/m1.jpg" alt="">
+    </div>
+    <script>
+
+        // 延迟执行函数,,指定延迟时间,时间到了 就执行 我们指定的函数
+        // 5s 之后控制台输出 1 
+        // ms  为 单位  毫秒  1  秒   === 1000ms
+        var timer1  = setTimeout(function(){
+            console.log('1');
+        },5000)
+
+
+        var btn = document.querySelector('.out');
+        btn.onclick = function(){
+            // 取消延迟定时器 
+            // 必须给定时器 起名字
+            clearTimeout(timer1)
+        }
+
+        var ads = document.querySelector('.ads');
+        setTimeout(function(){
+            ads.style.display = 'none';
+        },3000)
+
+
+
+        // 循环执行定时器
+        // setInterval();
+        // 每隔一段时间 就执行一次 
+        // 指定间隔时间
+        var timer2 = setInterval(function(){
+            console.log('hello');
+        },1000)
+
+        // 取消循环定时器
+        var btn1 = document.querySelector('.int');
+        btn1.onclick = function(){
+            clearInterval(timer2)
+        }
+
+
+    </script>
+</body>
+</html>

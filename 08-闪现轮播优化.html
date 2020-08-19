@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .banner {
+            position: relative;
+            width: 1226px;
+            height: 460px;
+            margin: 0 auto;
+        }
+
+        .banner .img {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .banner .side {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 234px;
+            height: 420px;
+            background-color: rgba(0, 0, 0, .5);
+            padding: 20px 0;
+        }
+
+        .side .side-item {
+            width: 100%;
+            height: 42px;
+        }
+
+        .side .side-item a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            color: #fff;
+            line-height: 42px;
+            text-indent: 30px;
+            background: url('img/arrow.png') no-repeat 200px center;
+        }
+
+        .side .side-item a:hover {
+            background-color: orange;
+        }
+
+        .banner .arr {
+            position: absolute;
+            /* left: 234px; */
+            /* top: 195px; */
+            top: 50%;
+            /* 多移动了 自身高度的一半 */
+            margin-top: -35px;
+            width: 40px;
+            height: 70px;
+        }
+
+        .banner .arr.arr-l {
+            left: 234px;
+            /* 精灵图片的使用 */
+            /* 雪碧图  sprite */
+            background: url('img/arr.png') no-repeat -84px center;
+        }
+
+        .banner .arr.arr-l:hover {
+            background-position: 0 center;
+        }
+
+        .banner .arr.arr-r {
+            /* left: auto; */
+            /* 不听 left */
+            right: 0;
+            background: url('img/arr.png') no-repeat -124px center;
+        }
+
+        .banner .arr.arr-r:hover {
+            background-position: -42px center;
+        }
+
+        .banner .dot {
+            position: absolute;
+            right: 50px;
+            bottom: 30px;
+            /* width: 100px;
+            height: 20px; */
+            /* background-color: red; */
+        }
+
+        .dot .dot-item {
+            width: 10px;
+            height: 10px;
+            float: left;
+            margin: 0 10px;
+        }
+
+        .dot .dot-item a {
+            display: block;
+            width: 6px;
+            height: 6px;
+            background-color: rgba(0, 0, 0, .4);
+            border: 2px solid rgba(255, 255, 255, .4);
+            border-radius: 50%;
+        }
+
+        .dot .dot-item a:hover {
+            background-color: rgba(255, 255, 255, .4);
+            border: 2px solid rgba(0, 0, 0, .4);
+
+        }
+
+        .dot .dot-item.active a {
+            background-color: rgba(255, 255, 255, .4);
+            border: 2px solid rgba(0, 0, 0, .4);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="banner">
+        <a class="img" href="#">
+            <!-- 大图 -->
+            <img src="img/m1.jpg" alt="">
+        </a>
+        <ul class="side">
+            <li class="side-item">
+                <a href="#">手机 电话卡</a>
+            </li>
+            <li class="side-item">
+                <a href="#">手机 电话卡</a>
+            </li>
+            <li class="side-item">
+                <a href="#">手机 电话卡</a>
+            </li>
+            <li class="side-item">
+                <a href="#">手机 电话卡</a>
+            </li>
+            <li class="side-item">
+                <a href="#">手机 电话卡</a>
+            </li>
+            <li class="side-item">
+                <a href="#">手机 电话卡</a>
+            </li>
+            <li class="side-item">
+                <a href="#">手机 电话卡</a>
+            </li>
+            <li class="side-item">
+                <a href="#">手机 电话卡</a>
+            </li>
+            <li class="side-item">
+                <a href="#">手机 电话卡</a>
+            </li>
+            <li class="side-item">
+                <a href="#">手机 电话卡</a>
+            </li>
+        </ul>
+        <!-- 箭头 -->
+        <a href="#" class="arr arr-l" onclick="prev()"></a>
+        <a href="#" class="arr arr-r" onclick="next()"></a>
+
+        <!-- 圆点 -->
+        <ul class="dot">
+            <!-- <li class="dot-item active" onclick="go(0)">
+                <a href="#"></a>
+            </li>
+            <li class="dot-item" onclick="go(1)">
+                <a href="#"></a>
+            </li>
+            <li class="dot-item" onclick="go(2)">
+                <a href="#"></a>
+            </li>
+            <li class="dot-item" onclick="go(3)">
+                <a href="#"></a>
+            </li>
+            <li class="dot-item" onclick="go(4)">
+                <a href="#"></a>
+            </li> -->
+
+            <!-- 考虑动态生成 -->
+
+        </ul>
+    </div>
+
+
+    <div class="box" onclick="foo()">
+        不凡学院
+
+    </div>
+    <script>
+        // 绑定事件 的  第二种方式    标签内部绑定
+
+        // 方式一
+        // var box = document.querySelector('.box');
+        // box.onclick = function(){
+        // console.log('foo');
+        // }
+
+        // 方式二  
+        function foo() {
+            console.log('foo');
+        }
+
+        // 模拟请求来的图片数据
+        var imgArr = ['m1.jpg', 'm2.jpg', 'm3.jpg', 'm4.jpg', 'm5.jpg'];
+        // var arrR = document.querySelector('.arr-r');
+        // var arrL = document.querySelector('.arr-l');
+        var banner = document.querySelector('.banner img');
+
+        var ul = document.querySelector('.dot');
+        var count = 0;  // 计数器 
+        // 和 imgArr 的 索引 实现 相关的 绑定
+
+        // 动态生成小圆点
+        // var str = '';
+        // for(var i =0;i<imgArr.length;i++){
+        //     str = str +'<li class="dot-item'+(i===0?' active':'')+'" onclick="go('+i+')"><a href="#"></a></li>'
+        // }
+        // ul.innerHTML = str;
+
+
+        initDot(ul, imgArr);
+        var dots = document.querySelectorAll('.dot-item');
+        function next() {
+            count++;
+            if (count >= imgArr.length) {
+                count = 0;
+            }
+            setImg();
+        }
+        //    下一张
+
+        // 上一张
+        function prev() {
+            count--;
+            if (count < 0) {
+                count = imgArr.length - 1;
+            }
+            setImg();
+        }
+
+        // 小圆点 点击事件
+        function go(num) {
+            // 同步 count
+            count = num;
+            setImg();
+        }
+
+
+        function setImg() {
+            banner.src = 'img/' + imgArr[count];
+            // 修改圆点的样式 类名操作
+            for (var i = 0; i < dots.length; i++) {
+                dots[i].classList.remove('active')
+            }
+            dots[count].classList.add('active')
+        }
+
+
+        function initDot(el, arr) {
+            for (var i = 0; i < arr.length; i++) {
+                str = str + '<li class="dot-item' + (i === 0 ? ' active' : '') + '" onclick="go(' + i + ')"><a href="#"></a></li>';
+
+            }
+            el.innerHTML = str;
+        }
+    </script>
+</body>
+
+</html>
